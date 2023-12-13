@@ -1,0 +1,22 @@
+name: io.quarkus.openrewrite.Quarkus
+description: Update Quarkus version and refactor imports and resources if needed.
+type: specs.openrewrite.org/v1beta/recipe
+recipeList:
+- org.openrewrite.gradle.AddProperty: {
+    value: 3.6.3,
+    overwrite: true,
+    key: quarkusPlatformVersion
+  }
+- org.openrewrite.gradle.AddProperty: {
+    value: 3.6.3,
+    overwrite: true,
+    key: quarkusPluginVersion
+  }
+- org.openrewrite.gradle.plugins.UpgradePluginVersion: {
+    pluginIdPattern: org.jetbrains.kotlin.*,
+    newVersion: 1.9.21
+  }
+displayName: Migrate quarkus project to a new version
+tags: [
+  quarkus
+]
